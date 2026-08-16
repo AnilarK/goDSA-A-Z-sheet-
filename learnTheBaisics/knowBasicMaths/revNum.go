@@ -6,15 +6,16 @@ import (
 	"os"
 )
 
-func count(num int) int {
-	var ans int = 0
+func rev(num int) int {
+	var revNum int
 
 	for num != 0 {
-		ans++
+		lastDigit := num % 10
 		num = num / 10
+		revNum = revNum*10 + lastDigit
 	}
 
-	return ans
+	return revNum
 }
 
 func main() {
@@ -22,9 +23,10 @@ func main() {
 	fmt.Println("Enter a number :")
 
 	reader := bufio.NewReader(os.Stdin)
+
 	var num int
 	fmt.Fscan(reader, &num)
 
-	fmt.Println("tcount of all digit is : ", count(num))
+	fmt.Println("the reversed number is : ", rev(num))
 
 }
